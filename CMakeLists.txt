@@ -3,4 +3,4 @@ project(display_o_tron)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(display_o_tron main.cpp)
+add_executable(display_o_tron src/main.cpp)
