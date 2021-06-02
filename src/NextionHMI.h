@@ -36,6 +36,11 @@ public:
     template<class T>
     void setValue(const std::string& object, T value);
 
+    /**
+     * Check if data was received from the hmi and handle the commands
+     */
+    void handleRecievedData();
+
 private:
     /**
      * Sends a command to the screen
