@@ -12,7 +12,7 @@ int main()
 
     // run the dot app
     while(true) {
-        dot.run();
+        dot.update();
     }
     return 0;
 }

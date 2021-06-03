@@ -19,11 +19,11 @@
 #include <variant>
 #include <string>
 #include <map>
+#include <mpUtils/mpUtils.h>
 #include "inputValueTypes.h"
 #include "NextionHMI.h"
+#include "DebugDataSource.h"
 //--------------------
-
-using IVType = std::variant<uint32_t, double>;
 
 //-------------------------------------------------------------------
 /**
@@ -43,16 +43,19 @@ public:
     /**
      * @brief call in endless loop to run the software
      */
-    void run();
+    void update();
 
 private:
     /**
      * @brief handles a value change by a data source
      */
-    void valueChangeHandler(InputValueType type, IVType value);
+    void newValueHandler(InputValueType type, InputDataType value);
 
     // display
     NextionHMI m_nextion;
+
+    // data sources
+    DebugDataSource m_debugDataSource;
 
     // settings
     std::map<InputValueType,std::string> m_ValueToDisplayObject; //!< maps different ValueTypes to their name on the display

@@ -19,17 +19,19 @@
 // function definitions of the Dot class
 //-------------------------------------------------------------------
 
-Dot::Dot() : m_nextion("/dev/ttyUSB0",mpu::io::BaudRate::BAUD_9600)
+Dot::Dot()
+    : m_nextion("/dev/ttyUSB0",mpu::io::BaudRate::BAUD_9600),
+    m_debugDataSource(std::bind(&Dot::newValueHandler,this,std::placeholders::_1,std::placeholders::_2) )
 {
-
+    m_ValueToDisplayObject[InputValueType::sog] = "sog";
 }
 
-void Dot::run()
+void Dot::update()
 {
-
+    m_debugDataSource.update();
 }
 
-void Dot::valueChangeHandler(InputValueType type, IVType value)
+void Dot::newValueHandler(InputValueType type, InputDataType value)
 {
     const std::string& obj = m_ValueToDisplayObject[type];
 
