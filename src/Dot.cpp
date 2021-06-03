@@ -39,8 +39,7 @@ void Dot::valueChangeHandler(InputValueType type, IVType value)
         // pass to display
         m_nextion.setValue(obj, v);
 
-        // log for debugging
-        logDEBUG("DOT") << "Recieved " << to_string(type) << ": " << v;
+        logDEBUG("DOT") << "New Value for \"" << to_string(type) << "\": " << v;
 
     }, value);
 }

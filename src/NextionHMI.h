@@ -59,6 +59,7 @@ inline void NextionHMI::sendCommand(const std::string &command)
     m_sp.write(command.data(), command.length());
     constexpr char stopCode[] = {char(0xff),char(0xff),char(0xff)};
     m_sp.write(stopCode,3);
+    logDEBUG("NextionHMI") << "Sent command: \"" << command << "\"";
 }
 
 template<class T>
