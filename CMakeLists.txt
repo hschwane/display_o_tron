@@ -36,7 +36,10 @@ include(setDefaultTypeRelease)
 # -------------------------------------------------------------
 # create target
 # -------------------------------------------------------------
-add_executable(display_o_tron src/main.cpp src/NextionHMI.cpp)
+add_executable(display_o_tron
+        src/main.cpp
+        src/NextionHMI.cpp
+        src/Dot.cpp)
 
 # -------------------------------------------------------------
 # set target properties
